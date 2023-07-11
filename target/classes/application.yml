@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: sqs-cross-account-poc
+  profiles:
+    active: ${ENVIRONMENT:dev}
+environment:
+  aws:
+    roleArn: ${AWS_CROSS_ROLE_ARN:arn:aws:iam::302001318918:role/service_c6pay-unified-transaction-command}
+    roleSessionName: ${AWS_CROSS_ROLE_SESSION_NAME:service_c6pay-unified-transaction-command}
+    region: ${AWS_DEFAULT_REGION:us-east-2}
+  sqs:
+    queueUrl: ${URI_AWS_SQS_POS_INSTALLATION:https://sqs.us-east-2.amazonaws.com/302001318918/c6pay-transaction-queue-hom-sqs}
