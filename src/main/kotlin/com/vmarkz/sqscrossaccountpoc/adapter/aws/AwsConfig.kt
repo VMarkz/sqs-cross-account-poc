@@ -49,9 +49,10 @@ class AwsConfig (
 //            }
 
 
-    @Bean
+    @Bean(name = ["credentialsProvider"])
     fun credentialsProvider() = StsAssumeRoleCredentialsProvider.builder()
         .refreshRequest(assumeRoleRequest)
+        .stsClient(stsClient)
         .build()
 
 }
